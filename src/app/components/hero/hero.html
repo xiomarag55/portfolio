@@ -1,0 +1,226 @@
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden grid-bg">
+
+  <!-- Abstract 3D Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+
+    <!-- Orb 1 - Main large -->
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-10 animate-float"
+         style="background: radial-gradient(circle, #00d4ff 0%, #0066ff 40%, transparent 70%);
+                filter: blur(60px);"></div>
+
+    <!-- Orb 2 - Purple -->
+    <div class="absolute bottom-1/4 left-1/6 w-72 h-72 rounded-full opacity-8 animate-float-delay"
+         style="background: radial-gradient(circle, #8b5cf6 0%, #6d28d9 40%, transparent 70%);
+                filter: blur(50px);"></div>
+
+    <!-- Orb 3 - Small accent -->
+    <div class="absolute top-1/3 left-1/3 w-48 h-48 rounded-full opacity-5 animate-float-slow"
+         style="background: radial-gradient(circle, #f472b6 0%, #ec4899 40%, transparent 70%);
+                filter: blur(40px);"></div>
+
+    <!-- 3D Geometric Ring 1 -->
+    <div class="absolute top-20 right-20 w-32 h-32 animate-spin-slow opacity-20"
+         style="border: 2px solid transparent;
+                border-radius: 50%;
+                background: linear-gradient(#0d1117, #0d1117) padding-box,
+                            linear-gradient(135deg, #00d4ff, #8b5cf6) border-box;">
+      <div class="absolute inset-3 rounded-full"
+           style="border: 1px solid rgba(0,212,255,0.3)"></div>
+    </div>
+
+    <!-- 3D Geometric Ring 2 -->
+    <div class="absolute bottom-32 left-24 w-24 h-24 animate-rotate-reverse opacity-15"
+         style="border: 1px solid transparent;
+                border-radius: 50%;
+                background: linear-gradient(#0d1117, #0d1117) padding-box,
+                            linear-gradient(135deg, #8b5cf6, #f472b6) border-box;">
+    </div>
+
+    <!-- Floating Cube 1 -->
+    <div class="absolute top-1/2 right-16 w-16 h-16 animate-float opacity-25"
+         style="transform-style: preserve-3d; transform: rotateX(45deg) rotateZ(45deg)">
+      <div class="w-full h-full border border-cyber-cyan/40 rounded-lg"
+           style="background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(139,92,246,0.05));
+                  box-shadow: 0 0 20px rgba(0,212,255,0.1)"></div>
+    </div>
+
+    <!-- Floating Cube 2 -->
+    <div class="absolute top-32 left-1/4 w-10 h-10 animate-float-delay opacity-20"
+         style="transform: rotateX(45deg) rotateZ(45deg)">
+      <div class="w-full h-full border border-cyber-purple/40 rounded"
+           style="background: rgba(139,92,246,0.05)"></div>
+    </div>
+
+    <!-- Hexagon Shape -->
+    <div class="absolute bottom-1/3 right-1/3 opacity-10 animate-float-slow">
+      <svg width="80" height="80" viewBox="0 0 100 100">
+        <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"
+                 fill="none" stroke="url(#hexGrad)" stroke-width="2"/>
+        <defs>
+          <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00d4ff"/>
+            <stop offset="100%" stop-color="#8b5cf6"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Dot Grid -->
+    <div class="absolute inset-0"
+         style="background-image: radial-gradient(rgba(0,212,255,0.08) 1px, transparent 1px);
+                background-size: 40px 40px;
+                mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)">
+    </div>
+
+    <!-- Diagonal Lines -->
+    <svg class="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="diag" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 0 60 L 60 0" stroke="rgba(0,212,255,0.5)" stroke-width="0.5" fill="none"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#diag)"/>
+    </svg>
+
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-0">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Text Content -->
+      <div class="flex flex-col gap-8 animate-fade-in">
+        <div class="section-tag w-fit">
+          <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse-glow"></span>
+          Disponible para proyectos
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <p class="text-text-secondary font-mono text-sm tracking-widest uppercase">
+            Hola, soy
+          </p>
+          <h1 class="font-display text-5xl md:text-7xl font-bold leading-none tracking-tight">
+            <span class="text-text-primary">Xiomara</span><br>
+            <span class="cyber-gradient-text">Giraldo</span>
+          </h1>
+          <div class="flex items-center gap-3 h-10">
+            <span class="text-xl md:text-2xl font-sans font-light text-text-secondary">
+              {{ typedText }}<span class="animate-pulse text-cyber-cyan">|</span>
+            </span>
+          </div>
+        </div>
+
+        <p class="text-text-secondary text-lg leading-relaxed max-w-lg">
+          Creo experiencias digitales <span class="text-cyber-cyan font-medium">de alto impacto</span> con
+          tecnologías modernas. Especializada en arquitecturas escalables y
+          <span class="text-cyber-purple font-medium">interfaces excepcionales</span>.
+        </p>
+
+        <!-- Tech Badges -->
+        <div class="flex flex-wrap gap-2">
+          @for (badge of techBadges; track badge.label) {
+            <span class="px-3 py-1 text-xs font-mono font-medium rounded-full neuro-card-sm"
+                  style="background: linear-gradient(145deg, #1a2535, #0f1923);
+                         box-shadow: 3px 3px 6px #080c12, -3px -3px 6px #18273e;
+                         border: 1px solid rgba(255,255,255,0.04)">
+              <span class="bg-gradient-to-r {{ badge.color }} bg-clip-text text-transparent">
+                {{ badge.label }}
+              </span>
+            </span>
+          }
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 mt-2">
+          <button (click)="scrollTo('#projects')"
+                  class="group relative px-8 py-3.5 rounded-xl font-medium text-sm overflow-hidden transition-all duration-300"
+                  style="background: linear-gradient(135deg, #00d4ff, #0066ff, #8b5cf6);
+                         box-shadow: 0 0 30px rgba(0,212,255,0.3)">
+            <span class="relative z-10 text-white">Ver Proyectos</span>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                 style="background: linear-gradient(135deg, #8b5cf6, #0066ff, #00d4ff)"></div>
+          </button>
+
+          <button (click)="scrollTo('#contact')"
+                  class="neuro-btn text-text-primary border border-cyber-cyan/20 hover:border-cyber-cyan/50 hover:shadow-glow-cyan transition-all duration-300 text-sm">
+            Contactar
+            <svg class="inline-block ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-4 pt-2">
+          <span class="text-text-muted text-xs font-mono">// sígueme</span>
+          <div class="glow-line flex-1 max-w-12"></div>
+          @for (social of socials; track social.label) {
+            <a [href]="social.href" target="_blank"
+               class="w-9 h-9 neuro-card-sm flex items-center justify-center text-text-secondary hover:text-cyber-cyan transition-all duration-200 hover:shadow-glow-cyan"
+               [innerHTML]="social.icon">
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- Avatar / Visual Column -->
+      <div class="hidden md:flex justify-center items-center relative">
+        <!-- Outer ring -->
+        <div class="absolute w-80 h-80 rounded-full animate-spin-slow opacity-30"
+             style="border: 1px solid transparent;
+                    background: linear-gradient(#0d1117, #0d1117) padding-box,
+                                linear-gradient(135deg, #00d4ff, transparent 60%, #8b5cf6) border-box;">
+        </div>
+        <!-- Middle ring -->
+        <div class="absolute w-64 h-64 rounded-full animate-rotate-reverse opacity-20"
+             style="border: 1px solid transparent;
+                    background: linear-gradient(#0d1117, #0d1117) padding-box,
+                                linear-gradient(45deg, #8b5cf6, transparent 60%, #00d4ff) border-box;">
+        </div>
+
+        <!-- Avatar card -->
+        <div class="relative w-56 h-56 neuro-card flex items-center justify-center"
+             style="border-radius: 2rem">
+          <div class="absolute inset-0 rounded-3xl"
+               style="background: linear-gradient(135deg, rgba(0,212,255,0.06) 0%, rgba(139,92,246,0.06) 100%)"></div>
+          <!-- Placeholder avatar -->
+          <div class="relative z-10 flex flex-col items-center gap-4">
+            <div class="w-24 h-24 rounded-2xl"
+                 style="background: linear-gradient(135deg, #00d4ff 0%, #0066ff 50%, #8b5cf6 100%);
+                        box-shadow: 0 0 40px rgba(0,212,255,0.3)">
+              <div class="w-full h-full flex items-center justify-center">
+                <svg class="w-14 h-14 text-white opacity-90" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="font-display font-semibold text-text-primary text-sm">Full Stack Dev</p>
+              <p class="font-mono text-cyber-cyan text-xs">5+ años exp</p>
+            </div>
+          </div>
+
+          <!-- Floating stat cards -->
+          <div class="absolute -top-4 -right-8 neuro-card-sm px-3 py-2 animate-float">
+            <p class="font-mono text-cyber-cyan text-xs font-bold">+50</p>
+            <p class="text-text-muted text-[10px]">Proyectos</p>
+          </div>
+          <div class="absolute -bottom-4 -left-8 neuro-card-sm px-3 py-2 animate-float-delay">
+            <p class="font-mono text-cyber-purple text-xs font-bold">+5yr</p>
+            <p class="text-text-muted text-[10px]">Experiencia</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+    <span class="text-text-muted text-xs font-mono">scroll</span>
+    <svg class="w-4 h-4 text-cyber-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+
+</section>

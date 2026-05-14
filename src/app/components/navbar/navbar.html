@@ -1,0 +1,69 @@
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+     [class.scrolled]="isScrolled()">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#home" (click)="scrollTo('#home'); $event.preventDefault()"
+       class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl neuro-card-sm flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyber-cyan/20 to-cyber-purple/20"></div>
+        <span class="font-display font-bold text-lg cyber-gradient-text relative z-10">D</span>
+      </div>
+      <span class="font-display font-semibold text-text-primary tracking-tight">
+        dev<span class="cyber-gradient-text">.</span>portfolio
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-1">
+      @for (link of navLinks; track link.href) {
+        <a [href]="link.href"
+           (click)="scrollTo(link.href); $event.preventDefault()"
+           class="px-4 py-2 rounded-lg text-sm font-medium text-text-secondary hover:text-cyber-cyan transition-all duration-200 relative group">
+          {{ link.label }}
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-cyber rounded-full transition-all duration-300 group-hover:w-4/5"></span>
+        </a>
+      }
+    </div>
+
+    <!-- CTA Button -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#contact" (click)="scrollTo('#contact'); $event.preventDefault()"
+         class="neuro-btn text-sm cyber-gradient-text border border-cyber-cyan/20 hover:border-cyber-cyan/50 hover:shadow-glow-cyan transition-all duration-300">
+        Contáctame
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button (click)="toggleMenu()"
+            class="md:hidden neuro-btn p-2.5 w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+      <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
+            [class.rotate-45]="isMenuOpen()" [class.translate-y-2]="isMenuOpen()"></span>
+      <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
+            [class.opacity-0]="isMenuOpen()"></span>
+      <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
+            [class.-rotate-45]="isMenuOpen()" [class.-translate-y-2]="isMenuOpen()"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (isMenuOpen()) {
+    <div class="md:hidden border-t border-cyber-cyan/10 backdrop-blur-md"
+         style="background: rgba(13, 17, 23, 0.98)">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+        @for (link of navLinks; track link.href) {
+          <a [href]="link.href"
+             (click)="scrollTo(link.href); $event.preventDefault()"
+             class="px-4 py-3 rounded-xl text-sm font-medium text-text-secondary hover:text-cyber-cyan hover:bg-neuro-light/50 transition-all duration-200">
+            {{ link.label }}
+          </a>
+        }
+        <div class="glow-line my-3"></div>
+        <a href="#contact" (click)="scrollTo('#contact'); $event.preventDefault()"
+           class="neuro-btn text-sm text-center cyber-gradient-text border border-cyber-cyan/20">
+          Contáctame
+        </a>
+      </div>
+    </div>
+  }
+</nav>

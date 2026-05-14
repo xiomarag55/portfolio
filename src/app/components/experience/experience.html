@@ -1,0 +1,131 @@
+<section id="experience" class="relative py-32 overflow-hidden">
+
+  <!-- Background -->
+  <div class="absolute left-1/2 top-0 w-px h-full opacity-10 pointer-events-none"
+       style="background: linear-gradient(180deg, transparent, #00d4ff 20%, #8b5cf6 80%, transparent)"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section Header -->
+    <div class="flex flex-col items-center gap-4 mb-20">
+      <span class="section-tag">// 04. experiencia</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-text-primary text-center">
+        Mi <span class="cyber-gradient-text">trayectoria</span> profesional
+      </h2>
+      <div class="glow-line w-24"></div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-12">
+
+      <!-- Timeline (2/3) -->
+      <div class="lg:col-span-2 flex flex-col gap-0 relative">
+
+        <!-- Vertical line -->
+        <div class="absolute left-5 top-8 bottom-8 w-px"
+             style="background: linear-gradient(180deg, #00d4ff, #8b5cf6, #f472b6)"></div>
+
+        @for (job of jobs; track job.company; let i = $index) {
+          <div class="relative flex gap-8 pb-12">
+
+            <!-- Timeline dot -->
+            <div class="relative flex-shrink-0 w-10 flex items-start justify-center mt-1">
+              <div class="w-4 h-4 rounded-full border-2 z-10 relative"
+                   [style]="'border-color: ' + job.color + '; background: #0d1117; box-shadow: 0 0 12px ' + job.color + '60'">
+                @if (job.current) {
+                  <div class="absolute inset-0.5 rounded-full animate-pulse-glow"
+                       [style]="'background: ' + job.color"></div>
+                }
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="flex-1 neuro-card p-7 flex flex-col gap-5 group hover:scale-[1.01] transition-transform duration-300">
+
+              <!-- Header -->
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <h3 class="font-display text-lg font-semibold text-text-primary">{{ job.role }}</h3>
+                    @if (job.current) {
+                      <span class="px-2 py-0.5 text-xs font-mono rounded-full"
+                            style="background: rgba(16,255,160,0.1); color: #10ffa0; border: 1px solid rgba(16,255,160,0.2)">
+                        actual
+                      </span>
+                    }
+                  </div>
+                  <p class="font-medium" [style]="'color: ' + job.color">{{ job.company }}</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-text-muted text-sm font-mono">{{ job.period }}</p>
+                  <p class="text-text-muted text-xs">{{ job.location }}</p>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <p class="text-text-secondary text-sm leading-relaxed">{{ job.description }}</p>
+
+              <!-- Achievements -->
+              <ul class="flex flex-col gap-2">
+                @for (ach of job.achievements; track ach) {
+                  <li class="flex gap-3 text-sm text-text-secondary">
+                    <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          [style]="'background: ' + job.color"></span>
+                    {{ ach }}
+                  </li>
+                }
+              </ul>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                @for (tag of job.tags; track tag) {
+                  <span class="px-2.5 py-1 text-xs font-mono rounded-lg text-text-muted"
+                        style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06)">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Education (1/3) -->
+      <div class="flex flex-col gap-6">
+        <h3 class="font-display text-xl font-semibold text-text-primary">Formación</h3>
+
+        <div class="flex flex-col gap-4">
+          @for (edu of education; track edu.degree) {
+            <div class="neuro-card p-5 flex gap-4 items-start hover:scale-[1.02] transition-transform duration-200">
+              <span class="text-2xl mt-0.5">{{ edu.icon }}</span>
+              <div>
+                <h4 class="text-text-primary font-medium text-sm">{{ edu.degree }}</h4>
+                <p class="text-text-muted text-xs mt-0.5">{{ edu.institution }}</p>
+                <p class="text-cyber-cyan font-mono text-xs mt-1">{{ edu.period }}</p>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Download CV Card -->
+        <div class="neuro-card p-6 flex flex-col items-center gap-4 text-center mt-4"
+             style="border: 1px solid rgba(0,212,255,0.1)">
+          <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
+               style="background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(139,92,246,0.1))">
+            📄
+          </div>
+          <div>
+            <p class="text-text-primary font-medium">Currículum Vitae</p>
+            <p class="text-text-secondary text-xs mt-1">Descarga mi CV completo en PDF</p>
+          </div>
+          <button class="w-full py-2.5 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-glow-cyan"
+                  style="background: linear-gradient(135deg, #00d4ff, #0066ff);
+                         color: white; box-shadow: 0 0 20px rgba(0,212,255,0.2)">
+            Descargar CV →
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

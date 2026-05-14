@@ -1,0 +1,7 @@
+:host { display: block; }
+
+input:focus, textarea:focus {
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  box-shadow: inset 4px 4px 8px #080c12, inset -4px -4px 8px #18273e, 0 0 0 1px rgba(0, 212, 255, 0.2) !important;
+  outline: none;
+}

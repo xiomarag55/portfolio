@@ -1,0 +1,116 @@
+<section id="projects" class="relative py-32 overflow-hidden">
+
+  <!-- Background orb -->
+  <div class="absolute right-0 bottom-0 w-96 h-96 opacity-5 pointer-events-none"
+       style="background: radial-gradient(circle, #f472b6 0%, transparent 70%); filter: blur(80px)"></div>
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section Header -->
+    <div class="flex flex-col items-center gap-4 mb-16">
+      <span class="section-tag">// 03. proyectos</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-text-primary text-center">
+        Mi <span class="cyber-gradient-text-alt">trabajo</span> reciente
+      </h2>
+      <div class="glow-line w-24" style="background: linear-gradient(90deg, transparent, #8b5cf6, #f472b6, transparent)"></div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12">
+      @for (filter of filters; track filter) {
+        <button (click)="setFilter(filter)"
+                class="px-5 py-2 rounded-xl text-sm font-medium font-mono transition-all duration-200 capitalize"
+                [class.neuro-btn-pressed]="activeFilter() === filter"
+                [class.text-cyber-cyan]="activeFilter() === filter"
+                [class.neuro-btn]="activeFilter() !== filter"
+                [class.text-text-secondary]="activeFilter() !== filter">
+          {{ filter }}
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (project of filteredProjects; track project.title) {
+        <div class="neuro-card p-6 flex flex-col gap-5 group hover:scale-[1.02] transition-all duration-300 relative overflow-hidden"
+             [class.md:col-span-2]="project.featured && filteredProjects.indexOf(project) === 0">
+
+          <!-- Top gradient bar -->
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+               [class]="'from-transparent via-cyber-cyan to-transparent'"></div>
+
+          <!-- Header -->
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+                   style="background: linear-gradient(145deg, #1a2535, #0f1923);
+                          box-shadow: 4px 4px 8px #080c12, -4px -4px 8px #18273e">
+                {{ project.icon }}
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-text-primary group-hover:text-cyber-cyan transition-colors duration-200">
+                  {{ project.title }}
+                </h3>
+                <span class="font-mono text-xs text-text-muted capitalize">{{ project.category }}</span>
+              </div>
+            </div>
+            @if (project.featured) {
+              <span class="flex-shrink-0 px-2 py-0.5 text-xs font-mono rounded-full"
+                    style="background: rgba(0,212,255,0.1); color: #00d4ff; border: 1px solid rgba(0,212,255,0.2)">
+                featured
+              </span>
+            }
+          </div>
+
+          <!-- Description -->
+          <p class="text-text-secondary text-sm leading-relaxed flex-1">
+            {{ project.description }}
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            @for (tag of project.tags; track tag) {
+              <span class="px-2.5 py-1 text-xs font-mono text-text-muted rounded-lg"
+                    style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06)">
+                {{ tag }}
+              </span>
+            }
+          </div>
+
+          <!-- Actions -->
+          <div class="flex gap-3 pt-2 border-t border-white/5">
+            <button class="flex-1 py-2 text-xs font-medium rounded-lg text-center text-text-secondary
+                           hover:text-cyber-cyan border border-transparent hover:border-cyber-cyan/30
+                           transition-all duration-200">
+              Ver código →
+            </button>
+            <button class="flex-1 py-2 text-xs font-medium rounded-lg text-center
+                           hover:shadow-glow-cyan transition-all duration-200"
+                    style="background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(139,92,246,0.1));
+                           color: #00d4ff; border: 1px solid rgba(0,212,255,0.15)">
+              Demo →
+            </button>
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center mt-16">
+      <div class="neuro-card px-8 py-6 flex items-center gap-6 max-w-lg w-full">
+        <div class="text-3xl">👀</div>
+        <div class="flex-1">
+          <p class="text-text-primary font-medium">¿Quieres ver más?</p>
+          <p class="text-text-secondary text-sm">Visita mi GitHub para todos mis proyectos.</p>
+        </div>
+        <a href="https://github.com" target="_blank"
+           class="flex-shrink-0 px-4 py-2 rounded-lg text-sm font-medium cyber-gradient-text
+                  border border-cyber-cyan/20 hover:border-cyber-cyan/50 transition-all duration-200">
+          GitHub →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
