@@ -8,9 +8,9 @@
 
     <!-- Section Header -->
     <div class="flex flex-col items-center gap-4 mb-20">
-      <span class="section-tag">// 04. experiencia</span>
+      <span class="section-tag">{{ lang.t('exp.tag') }}</span>
       <h2 class="font-display text-4xl md:text-5xl font-bold text-text-primary text-center">
-        Mi <span class="cyber-gradient-text">trayectoria</span> profesional
+        {{ lang.t('exp.title') }} <span class="cyber-gradient-text">{{ lang.t('exp.title_accent') }}</span>
       </h2>
       <div class="glow-line w-24"></div>
     </div>
@@ -49,7 +49,7 @@
                     @if (job.current) {
                       <span class="px-2 py-0.5 text-xs font-mono rounded-full"
                             style="background: rgba(16,255,160,0.1); color: #10ffa0; border: 1px solid rgba(16,255,160,0.2)">
-                        actual
+                        {{ lang.t('exp.current') }}
                       </span>
                     }
                   </div>
@@ -92,7 +92,7 @@
 
       <!-- Education (1/3) -->
       <div class="flex flex-col gap-6">
-        <h3 class="font-display text-xl font-semibold text-text-primary">Formación</h3>
+        <h3 class="font-display text-xl font-semibold text-text-primary">{{ lang.t('exp.edu_title') }}</h3>
 
         <div class="flex flex-col gap-4">
           @for (edu of education; track edu.degree) {
@@ -115,13 +115,13 @@
             📄
           </div>
           <div>
-            <p class="text-text-primary font-medium">Currículum Vitae</p>
-            <p class="text-text-secondary text-xs mt-1">Descarga mi CV completo en PDF</p>
+            <p class="text-text-primary font-medium">{{ lang.t('exp.cv_title') }}</p>
+            <p class="text-text-secondary text-xs mt-1">{{ lang.t('exp.cv_subtitle') }}</p>
           </div>
           <button class="w-full py-2.5 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-glow-cyan"
                   style="background: linear-gradient(135deg, #00d4ff, #0066ff);
                          color: white; box-shadow: 0 0 20px rgba(0,212,255,0.2)">
-            Descargar CV →
+            {{ lang.t('exp.cv_btn') }}
           </button>
         </div>
       </div>

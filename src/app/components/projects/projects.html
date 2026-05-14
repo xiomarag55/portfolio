@@ -8,23 +8,23 @@
 
     <!-- Section Header -->
     <div class="flex flex-col items-center gap-4 mb-16">
-      <span class="section-tag">// 03. proyectos</span>
+      <span class="section-tag">{{ lang.t('projects.tag') }}</span>
       <h2 class="font-display text-4xl md:text-5xl font-bold text-text-primary text-center">
-        Mi <span class="cyber-gradient-text-alt">trabajo</span> reciente
+        {{ lang.t('projects.title') }} <span class="cyber-gradient-text-alt">{{ lang.t('projects.title_accent') }}</span>
       </h2>
       <div class="glow-line w-24" style="background: linear-gradient(90deg, transparent, #8b5cf6, #f472b6, transparent)"></div>
     </div>
 
     <!-- Filter Tabs -->
     <div class="flex flex-wrap justify-center gap-2 mb-12">
-      @for (filter of filters; track filter) {
-        <button (click)="setFilter(filter)"
+      @for (filter of filters; track filter.key) {
+        <button (click)="setFilter(filter.key)"
                 class="px-5 py-2 rounded-xl text-sm font-medium font-mono transition-all duration-200 capitalize"
-                [class.neuro-btn-pressed]="activeFilter() === filter"
-                [class.text-cyber-cyan]="activeFilter() === filter"
-                [class.neuro-btn]="activeFilter() !== filter"
-                [class.text-text-secondary]="activeFilter() !== filter">
-          {{ filter }}
+                [class.neuro-btn-pressed]="activeFilter() === filter.key"
+                [class.text-cyber-cyan]="activeFilter() === filter.key"
+                [class.neuro-btn]="activeFilter() !== filter.key"
+                [class.text-text-secondary]="activeFilter() !== filter.key">
+          {{ lang.t(filter.labelKey) }}
         </button>
       }
     </div>
@@ -57,7 +57,7 @@
             @if (project.featured) {
               <span class="flex-shrink-0 px-2 py-0.5 text-xs font-mono rounded-full"
                     style="background: rgba(0,212,255,0.1); color: #00d4ff; border: 1px solid rgba(0,212,255,0.2)">
-                featured
+                {{ lang.t('projects.featured') }}
               </span>
             }
           </div>
@@ -82,13 +82,13 @@
             <button class="flex-1 py-2 text-xs font-medium rounded-lg text-center text-text-secondary
                            hover:text-cyber-cyan border border-transparent hover:border-cyber-cyan/30
                            transition-all duration-200">
-              Ver código →
+              {{ lang.t('projects.view_code') }}
             </button>
             <button class="flex-1 py-2 text-xs font-medium rounded-lg text-center
                            hover:shadow-glow-cyan transition-all duration-200"
                     style="background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(139,92,246,0.1));
                            color: #00d4ff; border: 1px solid rgba(0,212,255,0.15)">
-              Demo →
+              {{ lang.t('projects.demo') }}
             </button>
           </div>
 
@@ -101,13 +101,13 @@
       <div class="neuro-card px-8 py-6 flex items-center gap-6 max-w-lg w-full">
         <div class="text-3xl">👀</div>
         <div class="flex-1">
-          <p class="text-text-primary font-medium">¿Quieres ver más?</p>
-          <p class="text-text-secondary text-sm">Visita mi GitHub para todos mis proyectos.</p>
+          <p class="text-text-primary font-medium">{{ lang.t('projects.gh_title') }}</p>
+          <p class="text-text-secondary text-sm">{{ lang.t('projects.gh_desc') }}</p>
         </div>
         <a href="https://github.com" target="_blank"
            class="flex-shrink-0 px-4 py-2 rounded-lg text-sm font-medium cyber-gradient-text
                   border border-cyber-cyan/20 hover:border-cyber-cyan/50 transition-all duration-200">
-          GitHub →
+          {{ lang.t('projects.gh_btn') }}
         </a>
       </div>
     </div>

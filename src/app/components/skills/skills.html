@@ -8,23 +8,23 @@
 
     <!-- Section Header -->
     <div class="flex flex-col items-center gap-4 mb-20">
-      <span class="section-tag">// 02. habilidades</span>
+      <span class="section-tag">{{ lang.t('skills.tag') }}</span>
       <h2 class="font-display text-4xl md:text-5xl font-bold text-text-primary text-center">
-        Mi <span class="cyber-gradient-text">stack técnico</span>
+        {{ lang.t('skills.title') }} <span class="cyber-gradient-text">{{ lang.t('skills.title_accent') }}</span>
       </h2>
       <div class="glow-line w-24"></div>
       <p class="text-text-secondary text-center max-w-xl">
-        Tecnologías que domino para construir soluciones completas, desde la base de datos hasta la interfaz.
+        {{ lang.t('skills.subtitle') }}
       </p>
     </div>
 
     <!-- Skills Grid -->
     <div class="grid md:grid-cols-2 gap-6 mb-16">
-      @for (cat of skillCategories; track cat.title) {
+      @for (cat of skillCategories; track cat.titleKey) {
         <div class="neuro-card p-8 flex flex-col gap-6">
           <div class="flex items-center gap-3">
             <span class="text-2xl">{{ cat.icon }}</span>
-            <h3 class="font-display text-lg font-semibold text-text-primary">{{ cat.title }}</h3>
+            <h3 class="font-display text-lg font-semibold text-text-primary">{{ lang.t(cat.titleKey) }}</h3>
             <div class="flex-1 h-px" [style]="'background: linear-gradient(90deg, ' + cat.color + '40, transparent)'"></div>
           </div>
 
@@ -54,7 +54,7 @@
     <div class="neuro-card p-8">
       <div class="flex items-center gap-3 mb-6">
         <span class="text-xl">🔧</span>
-        <h3 class="font-display text-lg font-semibold text-text-primary">Herramientas & Tecnologías</h3>
+        <h3 class="font-display text-lg font-semibold text-text-primary">{{ lang.t('skills.tools_title') }}</h3>
       </div>
       <div class="flex flex-wrap gap-3">
         @for (tool of tools; track tool) {

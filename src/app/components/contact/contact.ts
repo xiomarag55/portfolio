@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './contact.scss',
 })
 export class Contact {
+  lang = inject(LanguageService);
+
   formData = {
     name: '',
     email: '',
@@ -39,27 +42,23 @@ export class Contact {
 
   contactInfo = [
     {
-      icon: '✉️',
-      label: 'Email',
-      value: 'xiomaragiraldo221@gmail.com',
+      icon: '✉️', labelKey: 'contact.lbl_email',
+      value: 'xiomaragiraldo221@gmail.com', valueKey: null,
       href: 'mailto:xiomaragiraldo221@gmail.com',
     },
     {
-      icon: '💼',
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/xiomara-giraldo',
-      href: 'https://linkedin.com',
+      icon: '💼', labelKey: 'contact.lbl_linkedin',
+      value: 'linkedin.com/in/xiomara-giraldo-pérez', valueKey: null,
+      href: 'https://www.linkedin.com/in/xiomara-giraldo-p%C3%A9rez-a17713166/',
     },
     {
-      icon: '📍',
-      label: 'Ubicación',
-      value: 'Colombia 🇨🇴 — Remoto',
+      icon: '📍', labelKey: 'contact.lbl_location',
+      value: null, valueKey: 'contact.val_location',
       href: null,
     },
     {
-      icon: '⏰',
-      label: 'Disponibilidad',
-      value: 'Lun–Vie, 9am–6pm COT',
+      icon: '⏰', labelKey: 'contact.lbl_avail',
+      value: null, valueKey: 'contact.val_avail',
       href: null,
     },
   ];

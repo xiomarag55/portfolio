@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,47 +9,46 @@ import { CommonModule } from '@angular/common';
   styleUrl: './skills.scss',
 })
 export class Skills implements AfterViewInit {
+  lang = inject(LanguageService);
   @ViewChildren('skillBar') skillBars!: QueryList<ElementRef>;
 
   skillCategories = [
     {
-      title: 'Frontend',
+      titleKey: 'skills.frontend',
       icon: '🎨',
       color: '#00d4ff',
       skills: [
-        { name: 'Angular', level: 95 },
+        { name: 'Angular', level: 80 },
         { name: 'React', level: 85 },
-        { name: 'TypeScript', level: 92 },
-        { name: 'Tailwind CSS', level: 90 },
-        { name: 'RxJS', level: 80 },
+        { name: 'TypeScript', level: 90 },
+        { name: 'Tailwind CSS', level: 90 }
       ]
     },
     {
-      title: 'Backend',
+      titleKey: 'skills.backend',
       icon: '⚙️',
       color: '#8b5cf6',
       skills: [
         { name: 'Node.js', level: 90 },
         { name: 'NestJS', level: 85 },
-        { name: 'Express.js', level: 88 },
+        { name: 'Express.js', level: 70 },
         { name: 'GraphQL', level: 75 },
         { name: 'REST APIs', level: 95 },
       ]
     },
     {
-      title: 'Base de Datos',
+      titleKey: 'skills.db',
       icon: '🗄️',
       color: '#10ffa0',
       skills: [
         { name: 'PostgreSQL', level: 88 },
         { name: 'MongoDB', level: 82 },
         { name: 'Redis', level: 70 },
-        { name: 'MySQL', level: 85 },
-        { name: 'Prisma ORM', level: 80 },
+        { name: 'MySQL', level: 85 }
       ]
     },
     {
-      title: 'DevOps & Cloud',
+      titleKey: 'skills.devops',
       icon: '☁️',
       color: '#f472b6',
       skills: [
@@ -64,7 +64,7 @@ export class Skills implements AfterViewInit {
   tools = [
     'VS Code', 'Figma', 'Postman', 'Jira', 'Slack',
     'Nginx', 'Jest', 'Cypress', 'Webpack', 'Vite',
-    'GitHub Actions', 'Kubernetes', 'Terraform',
+    'GitHub Actions', 'Kubernetes',
   ];
 
   ngAfterViewInit() {

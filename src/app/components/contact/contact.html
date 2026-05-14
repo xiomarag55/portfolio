@@ -12,13 +12,13 @@
 
     <!-- Section Header -->
     <div class="flex flex-col items-center gap-4 mb-20">
-      <span class="section-tag">// 05. contacto</span>
+      <span class="section-tag">{{ lang.t('contact.tag') }}</span>
       <h2 class="font-display text-4xl md:text-5xl font-bold text-text-primary text-center">
-        Trabajemos <span class="cyber-gradient-text">juntos</span>
+        {{ lang.t('contact.title') }} <span class="cyber-gradient-text">{{ lang.t('contact.title_accent') }}</span>
       </h2>
       <div class="glow-line w-24"></div>
       <p class="text-text-secondary text-center max-w-xl">
-        ¿Tienes un proyecto en mente? Me encantaría escucharte. Respondo en menos de 24 horas.
+        {{ lang.t('contact.subtitle') }}
       </p>
     </div>
 
@@ -26,24 +26,24 @@
 
       <!-- Contact Info (2/5) -->
       <div class="lg:col-span-2 flex flex-col gap-6">
-        <h3 class="font-display text-xl font-semibold text-text-primary">Información de contacto</h3>
+        <h3 class="font-display text-xl font-semibold text-text-primary">{{ lang.t('contact.info_title') }}</h3>
 
         <div class="flex flex-col gap-3">
-          @for (info of contactInfo; track info.label) {
+          @for (info of contactInfo; track info.labelKey) {
             <div class="neuro-card-sm p-4 flex items-center gap-4 group">
               <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
                    style="background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.1)">
                 {{ info.icon }}
               </div>
               <div class="min-w-0">
-                <p class="text-text-muted text-xs font-mono">{{ info.label }}</p>
+                <p class="text-text-muted text-xs font-mono">{{ lang.t(info.labelKey) }}</p>
                 @if (info.href) {
                   <a [href]="info.href"
                      class="text-text-secondary text-sm group-hover:text-cyber-cyan transition-colors duration-200 truncate block">
                     {{ info.value }}
                   </a>
                 } @else {
-                  <p class="text-text-secondary text-sm">{{ info.value }}</p>
+                  <p class="text-text-secondary text-sm">{{ lang.t(info.valueKey!) }}</p>
                 }
               </div>
             </div>
@@ -58,8 +58,8 @@
             <div class="absolute inset-0 rounded-full bg-cyber-green animate-ping opacity-40"></div>
           </div>
           <div>
-            <p class="text-text-primary text-sm font-medium">Disponible ahora</p>
-            <p class="text-text-muted text-xs">Abierta a oportunidades freelance y full-time</p>
+            <p class="text-text-primary text-sm font-medium">{{ lang.t('contact.status_title') }}</p>
+            <p class="text-text-muted text-xs">{{ lang.t('contact.status_desc') }}</p>
           </div>
         </div>
 
@@ -80,14 +80,14 @@
       <!-- Contact Form (3/5) -->
       <div class="lg:col-span-3">
         <form (ngSubmit)="onSubmit()" class="neuro-card p-8 flex flex-col gap-5">
-          <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Envíame un mensaje</h3>
+          <h3 class="font-display text-xl font-semibold text-text-primary mb-2">{{ lang.t('contact.form_title') }}</h3>
 
           <div class="grid sm:grid-cols-2 gap-5">
             <!-- Name -->
             <div class="flex flex-col gap-2">
-              <label class="text-text-secondary text-sm font-medium">Nombre</label>
+              <label class="text-text-secondary text-sm font-medium">{{ lang.t('contact.name') }}</label>
               <input type="text" [(ngModel)]="formData.name" name="name" required
-                     placeholder="Tu nombre"
+                     [placeholder]="lang.t('contact.ph_name')"
                      class="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted
                             outline-none transition-all duration-200 focus:border-cyber-cyan/50"
                      style="background: linear-gradient(145deg, #0f1923, #1a2535);
@@ -97,9 +97,9 @@
 
             <!-- Email -->
             <div class="flex flex-col gap-2">
-              <label class="text-text-secondary text-sm font-medium">Email</label>
+              <label class="text-text-secondary text-sm font-medium">{{ lang.t('contact.email') }}</label>
               <input type="email" [(ngModel)]="formData.email" name="email" required
-                     placeholder="tu@email.com"
+                     [placeholder]="lang.t('contact.ph_email')"
                      class="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted
                             outline-none transition-all duration-200 focus:border-cyber-cyan/50"
                      style="background: linear-gradient(145deg, #0f1923, #1a2535);
@@ -110,9 +110,9 @@
 
           <!-- Subject -->
           <div class="flex flex-col gap-2">
-            <label class="text-text-secondary text-sm font-medium">Asunto</label>
+            <label class="text-text-secondary text-sm font-medium">{{ lang.t('contact.subject') }}</label>
             <input type="text" [(ngModel)]="formData.subject" name="subject" required
-                   placeholder="¿En qué puedo ayudarte?"
+                   [placeholder]="lang.t('contact.ph_subject')"
                    class="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted
                           outline-none transition-all duration-200"
                    style="background: linear-gradient(145deg, #0f1923, #1a2535);
@@ -122,9 +122,9 @@
 
           <!-- Message -->
           <div class="flex flex-col gap-2">
-            <label class="text-text-secondary text-sm font-medium">Mensaje</label>
+            <label class="text-text-secondary text-sm font-medium">{{ lang.t('contact.message') }}</label>
             <textarea [(ngModel)]="formData.message" name="message" required rows="5"
-                      placeholder="Cuéntame sobre tu proyecto..."
+                      [placeholder]="lang.t('contact.ph_message')"
                       class="w-full px-4 py-3 rounded-xl text-sm text-text-primary placeholder-text-muted
                              outline-none transition-all duration-200 resize-none"
                       style="background: linear-gradient(145deg, #0f1923, #1a2535);
@@ -142,12 +142,12 @@
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4z"></path>
                 </svg>
-                Enviando...
+                {{ lang.t('contact.sending') }}
               </span>
             } @else if (isSent()) {
-              <span>¡Mensaje enviado! Te respondo pronto ✓</span>
+              <span>{{ lang.t('contact.sent') }}</span>
             } @else {
-              <span>Enviar mensaje →</span>
+              <span>{{ lang.t('contact.submit') }}</span>
             }
           </button>
 

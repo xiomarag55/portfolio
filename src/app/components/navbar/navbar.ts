@@ -1,5 +1,6 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,17 +9,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  lang = inject(LanguageService);
   isScrolled = signal(false);
   isMenuOpen = signal(false);
-  activeSection = signal('home');
 
   navLinks = [
-    { label: 'Inicio', href: '#home' },
-    { label: 'Sobre mí', href: '#about' },
-    { label: 'Habilidades', href: '#skills' },
-    { label: 'Proyectos', href: '#projects' },
-    { label: 'Experiencia', href: '#experience' },
-    { label: 'Contacto', href: '#contact' },
+    { key: 'nav.home', href: '#home' },
+    { key: 'nav.about', href: '#about' },
+    { key: 'nav.skills', href: '#skills' },
+    { key: 'nav.projects', href: '#projects' },
+    { key: 'nav.experience', href: '#experience' },
+    { key: 'nav.contact', href: '#contact' },
   ];
 
   @HostListener('window:scroll', [])
@@ -31,8 +32,7 @@ export class Navbar {
   }
 
   scrollTo(href: string) {
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
     this.isMenuOpen.set(false);
   }
 }

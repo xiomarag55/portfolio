@@ -23,23 +23,23 @@
           </span>
         </div>
         <p class="text-text-muted text-sm leading-relaxed max-w-xs">
-          Full Stack Developer apasionada por crear experiencias digitales que marcan la diferencia.
+          {{ lang.t('footer.tagline') }}
         </p>
         <div class="flex items-center gap-2 mt-2">
           <div class="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></div>
-          <span class="text-cyber-green text-xs font-mono">Disponible para proyectos</span>
+          <span class="text-cyber-green text-xs font-mono">{{ lang.t('footer.available') }}</span>
         </div>
       </div>
 
       <!-- Navigation -->
       <div class="flex flex-col gap-4">
-        <h4 class="font-display font-semibold text-text-primary text-sm tracking-wide uppercase">Navegación</h4>
+        <h4 class="font-display font-semibold text-text-primary text-sm tracking-wide uppercase">{{ lang.t('footer.nav_title') }}</h4>
         <nav class="flex flex-col gap-2">
           @for (link of links; track link.href) {
             <a [href]="link.href"
                (click)="scrollTo(link.href); $event.preventDefault()"
                class="text-text-muted text-sm hover:text-cyber-cyan transition-colors duration-200 w-fit">
-              {{ link.label }}
+              {{ lang.t(link.key) }}
             </a>
           }
         </nav>
@@ -47,14 +47,14 @@
 
       <!-- Contact quick info -->
       <div class="flex flex-col gap-4">
-        <h4 class="font-display font-semibold text-text-primary text-sm tracking-wide uppercase">Contacto rápido</h4>
+        <h4 class="font-display font-semibold text-text-primary text-sm tracking-wide uppercase">{{ lang.t('footer.contact_title') }}</h4>
         <div class="flex flex-col gap-3">
           <a href="mailto:xiomaragiraldo221@gmail.com"
              class="flex items-center gap-2 text-text-muted text-sm hover:text-cyber-cyan transition-colors duration-200">
             <span>✉️</span> xiomaragiraldo221&#64;gmail.com
           </a>
           <p class="flex items-center gap-2 text-text-muted text-sm">
-            <span>📍</span> Colombia 🇨🇴 — Remoto
+            <span>📍</span> {{ lang.t('contact.val_location') }}
           </p>
         </div>
 
@@ -76,12 +76,12 @@
     <!-- Bottom -->
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-text-muted text-xs font-mono">
-        &copy; {{ year }} Xiomara Giraldo. Todos los derechos reservados.
+        &copy; {{ year }} Xiomara Giraldo. {{ lang.t('footer.copyright') }}
       </p>
       <p class="text-text-muted text-xs flex items-center gap-1">
-        Hecho con
+        {{ lang.t('footer.made_with') }}
         <span class="text-cyber-pink animate-pulse-glow">♥</span>
-        en Angular + Tailwind CSS
+        {{ lang.t('footer.made_tech') }}
       </p>
     </div>
 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,15 +9,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './footer.scss',
 })
 export class Footer {
+  lang = inject(LanguageService);
   year = new Date().getFullYear();
 
   links = [
-    { label: 'Inicio', href: '#home' },
-    { label: 'Sobre mí', href: '#about' },
-    { label: 'Habilidades', href: '#skills' },
-    { label: 'Proyectos', href: '#projects' },
-    { label: 'Experiencia', href: '#experience' },
-    { label: 'Contacto', href: '#contact' },
+    { key: 'nav.home', href: '#home' },
+    { key: 'nav.about', href: '#about' },
+    { key: 'nav.skills', href: '#skills' },
+    { key: 'nav.projects', href: '#projects' },
+    { key: 'nav.experience', href: '#experience' },
+    { key: 'nav.contact', href: '#contact' },
   ];
 
   scrollTo(href: string) {

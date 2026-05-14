@@ -20,30 +20,53 @@
         <a [href]="link.href"
            (click)="scrollTo(link.href); $event.preventDefault()"
            class="px-4 py-2 rounded-lg text-sm font-medium text-text-secondary hover:text-cyber-cyan transition-all duration-200 relative group">
-          {{ link.label }}
+          {{ lang.t(link.key) }}
           <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-cyber rounded-full transition-all duration-300 group-hover:w-4/5"></span>
         </a>
       }
     </div>
 
-    <!-- CTA Button -->
+    <!-- Right actions: Lang toggle + CTA -->
     <div class="hidden md:flex items-center gap-3">
+
+      <!-- Language Toggle -->
+      <button (click)="lang.toggle()"
+              class="flex items-center rounded-xl overflow-hidden text-xs font-mono font-bold tracking-widest transition-all duration-200"
+              style="box-shadow: 4px 4px 8px #080c12, -4px -4px 8px #18273e;
+                     background: linear-gradient(145deg, #1a2535, #0f1923)">
+        <span class="px-3 py-2 transition-all duration-200"
+              [class.text-cyber-cyan]="lang.current() === 'es'"
+              [class.text-text-muted]="lang.current() !== 'es'">ES</span>
+        <span class="w-px h-4 bg-white/10"></span>
+        <span class="px-3 py-2 transition-all duration-200"
+              [class.text-cyber-cyan]="lang.current() === 'en'"
+              [class.text-text-muted]="lang.current() !== 'en'">EN</span>
+      </button>
+
       <a href="#contact" (click)="scrollTo('#contact'); $event.preventDefault()"
          class="neuro-btn text-sm cyber-gradient-text border border-cyber-cyan/20 hover:border-cyber-cyan/50 hover:shadow-glow-cyan transition-all duration-300">
-        Contáctame
+        {{ lang.t('nav.cta') }}
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button (click)="toggleMenu()"
-            class="md:hidden neuro-btn p-2.5 w-10 h-10 flex flex-col items-center justify-center gap-1.5">
-      <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
-            [class.rotate-45]="isMenuOpen()" [class.translate-y-2]="isMenuOpen()"></span>
-      <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
-            [class.opacity-0]="isMenuOpen()"></span>
-      <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
-            [class.-rotate-45]="isMenuOpen()" [class.-translate-y-2]="isMenuOpen()"></span>
-    </button>
+    <!-- Mobile: Lang toggle + Hamburger -->
+    <div class="md:hidden flex items-center gap-2">
+      <button (click)="lang.toggle()"
+              class="text-xs font-mono font-bold neuro-btn px-3 py-1.5 flex items-center gap-1">
+        <span [class.text-cyber-cyan]="lang.current() === 'es'" [class.text-text-muted]="lang.current() !== 'es'">ES</span>
+        <span class="text-text-muted">|</span>
+        <span [class.text-cyber-cyan]="lang.current() === 'en'" [class.text-text-muted]="lang.current() !== 'en'">EN</span>
+      </button>
+      <button (click)="toggleMenu()"
+              class="neuro-btn p-2.5 w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+        <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
+              [class.rotate-45]="isMenuOpen()" [class.translate-y-2]="isMenuOpen()"></span>
+        <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
+              [class.opacity-0]="isMenuOpen()"></span>
+        <span class="w-5 h-0.5 bg-text-primary transition-all duration-300"
+              [class.-rotate-45]="isMenuOpen()" [class.-translate-y-2]="isMenuOpen()"></span>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Menu -->
@@ -55,13 +78,13 @@
           <a [href]="link.href"
              (click)="scrollTo(link.href); $event.preventDefault()"
              class="px-4 py-3 rounded-xl text-sm font-medium text-text-secondary hover:text-cyber-cyan hover:bg-neuro-light/50 transition-all duration-200">
-            {{ link.label }}
+            {{ lang.t(link.key) }}
           </a>
         }
         <div class="glow-line my-3"></div>
         <a href="#contact" (click)="scrollTo('#contact'); $event.preventDefault()"
            class="neuro-btn text-sm text-center cyber-gradient-text border border-cyber-cyan/20">
-          Contáctame
+          {{ lang.t('nav.cta') }}
         </a>
       </div>
     </div>
