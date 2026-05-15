@@ -4,8 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
 import { environment } from '../../../environments/environment';
 
-const { serviceId, publicKey, accessToken, templateAdminId, templateUserId } =
-  environment.emailjs;
+const {
+  emailJsServiceId: serviceId,
+  emailJsPublicKey: publicKey,
+  emailJsAccessToken: accessToken,
+  emailJsTemplateAdminId: templateAdminId,
+  emailJsTemplateUserId: templateUserId,
+} = environment;
 
 @Component({
   selector: 'app-contact',
