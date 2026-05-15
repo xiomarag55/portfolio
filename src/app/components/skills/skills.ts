@@ -1,4 +1,11 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren, inject } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+  inject,
+} from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 import { CommonModule } from '@angular/common';
 
@@ -18,59 +25,65 @@ export class Skills implements AfterViewInit {
       icon: '🎨',
       color: '#00d4ff',
       skills: [
-        { name: 'Angular', level: 80 },
-        { name: 'React', level: 85 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'Tailwind CSS', level: 90 }
-      ]
+        { name: 'Angular', level: 60 },
+        { name: 'React', level: 68 },
+        { name: 'TypeScript', level: 65 },
+        { name: 'Tailwind CSS', level: 72 },
+      ],
     },
     {
       titleKey: 'skills.backend',
       icon: '⚙️',
       color: '#8b5cf6',
       skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'NestJS', level: 85 },
-        { name: 'Express.js', level: 70 },
-        { name: 'GraphQL', level: 75 },
-        { name: 'REST APIs', level: 95 },
-      ]
+        { name: 'Node.js', level: 55 },
+        { name: 'Java', level: 75 },
+        { name: 'Spring Boot', level: 82 },
+        { name: 'GraphQL', level: 55 },
+        { name: 'REST APIs', level: 78 },
+      ],
     },
     {
       titleKey: 'skills.db',
       icon: '🗄️',
       color: '#10ffa0',
       skills: [
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'MongoDB', level: 82 },
-        { name: 'Redis', level: 70 },
-        { name: 'MySQL', level: 85 }
-      ]
+        { name: 'PostgreSQL', level: 72 },
+        { name: 'MongoDB', level: 68 },
+        { name: 'MySQL', level: 75 },
+      ],
     },
     {
       titleKey: 'skills.devops',
       icon: '☁️',
       color: '#f472b6',
       skills: [
-        { name: 'Docker', level: 80 },
-        { name: 'AWS', level: 72 },
-        { name: 'CI/CD', level: 78 },
-        { name: 'Git & GitHub', level: 93 },
-        { name: 'Linux', level: 75 },
-      ]
+        { name: 'Docker', level: 65 },
+        { name: 'AWS', level: 40 },
+        { name: 'CI/CD', level: 58 },
+        { name: 'Git & GitHub', level: 80 },
+        { name: 'Linux', level: 45 },
+      ],
     },
   ];
 
   tools = [
-    'VS Code', 'Figma', 'Postman', 'Jira', 'Slack',
-    'Nginx', 'Jest', 'Cypress', 'Webpack', 'Vite',
-    'GitHub Actions', 'Kubernetes',
+    'VS Code',
+    'Figma',
+    'Postman',
+    'Jira',
+    'Slack',
+    'Nginx',
+    'Webpack',
+    'Vite',
+    'GitHub Actions',
+    'Kubernetes',
   ];
 
   ngAfterViewInit() {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target as HTMLElement;
             const width = el.getAttribute('data-width');
@@ -79,11 +92,11 @@ export class Skills implements AfterViewInit {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     setTimeout(() => {
-      this.skillBars.forEach(bar => observer.observe(bar.nativeElement));
+      this.skillBars.forEach((bar) => observer.observe(bar.nativeElement));
     }, 100);
   }
 }

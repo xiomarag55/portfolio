@@ -94,18 +94,28 @@
             <span class="text-text-primary">Xiomara</span><br>
             <span class="cyber-gradient-text">Giraldo Pérez</span>
           </h1>
-          <div class="flex items-center gap-3 h-10">
-            <span class="text-xl md:text-2xl font-sans font-light text-text-secondary">
-              {{ typedText }}<span class="animate-pulse text-cyber-cyan">|</span>
+          <div class="flex items-center gap-3 h-10 overflow-hidden">
+            <span class="text-xl md:text-2xl font-sans font-light text-text-secondary
+                         transition-opacity duration-400 ease-in-out" [class.opacity-0]="!isVisible()"
+              [class.opacity-100]="isVisible()">
+              {{ currentRole() }}<span class="animate-pulse text-cyber-cyan ml-0.5">|</span>
             </span>
           </div>
         </div>
 
+        @if (lang.current() === 'es') {
         <p class="text-text-secondary text-lg leading-relaxed max-w-lg">
           Creo experiencias digitales <span class="text-cyber-cyan font-medium">de alto impacto</span> con
           tecnologías modernas. Especializada en arquitecturas escalables y
           <span class="text-cyber-purple font-medium">interfaces excepcionales</span>.
         </p>
+        } @else {
+        <p class="text-text-secondary text-lg leading-relaxed max-w-lg">
+          I build <span class="text-cyber-cyan font-medium">high-impact</span> digital experiences
+          with modern technologies. Specialized in scalable architectures and
+          <span class="text-cyber-purple font-medium">exceptional interfaces</span>.
+        </p>
+        }
 
         <!-- Tech Badges -->
         <div class="flex flex-wrap gap-2">
@@ -154,67 +164,64 @@
       </div>
 
       <!-- Avatar / Visual Column -->
-      <div class="hidden md:flex justify-center items-center relative h-[520px]">
+      <div class="hidden md:flex justify-center items-center relative h-[520px] -translate-y-10">
 
         <!-- ── Orbital rings ── -->
-        <div class="absolute w-[420px] h-[420px] rounded-full animate-spin-slow"
-             style="border: 1px solid transparent;
+        <div class="absolute w-[420px] h-[420px] rounded-full animate-spin-slow" style="border: 1px solid transparent;
                     background: linear-gradient(#0d1117,#0d1117) padding-box,
                                 linear-gradient(135deg,#00d4ff,transparent 55%,#8b5cf6) border-box;
                     opacity: 0.25;">
           <!-- dot on ring -->
           <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-cyber-cyan"
-               style="box-shadow: 0 0 8px #00d4ff, 0 0 20px #00d4ff;"></div>
+            style="box-shadow: 0 0 8px #00d4ff, 0 0 20px #00d4ff;"></div>
         </div>
 
-        <div class="absolute w-[340px] h-[340px] rounded-full animate-rotate-reverse"
-             style="border: 1px solid transparent;
+        <div class="absolute w-[340px] h-[340px] rounded-full animate-rotate-reverse" style="border: 1px solid transparent;
                     background: linear-gradient(#0d1117,#0d1117) padding-box,
                                 linear-gradient(225deg,#8b5cf6,transparent 55%,#f472b6) border-box;
                     opacity: 0.2;">
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 rounded-full bg-cyber-purple"
-               style="box-shadow: 0 0 8px #8b5cf6, 0 0 20px #8b5cf6;"></div>
+          <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 rounded-full bg-cyber-purple"
+            style="box-shadow: 0 0 8px #8b5cf6, 0 0 20px #8b5cf6;"></div>
         </div>
 
         <!-- ── Hex frame with photo ── -->
-        <div class="relative z-10 flex flex-col items-center gap-5">
+        <div class="relative z-10">
 
           <!-- Hex glow backdrop -->
-          <div class="relative" style="filter: drop-shadow(0 0 30px rgba(0,212,255,0.25)) drop-shadow(0 0 60px rgba(139,92,246,0.15))">
+          <div class="relative"
+            style="filter: drop-shadow(0 0 30px rgba(0,212,255,0.25)) drop-shadow(0 0 60px rgba(139,92,246,0.15))">
 
             <!-- Outer hex border (SVG gradient stroke) -->
-            <svg class="absolute inset-0 w-full h-full animate-spin-slow" style="animation-duration:12s" viewBox="0 0 220 220" fill="none">
+            <svg class="absolute inset-0 w-full h-full animate-spin-slow" style="animation-duration:12s"
+              viewBox="0 0 220 220" fill="none">
               <defs>
                 <linearGradient id="hexBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#00d4ff"/>
-                  <stop offset="50%" stop-color="#8b5cf6"/>
-                  <stop offset="100%" stop-color="#00d4ff"/>
+                  <stop offset="0%" stop-color="#00d4ff" />
+                  <stop offset="50%" stop-color="#8b5cf6" />
+                  <stop offset="100%" stop-color="#00d4ff" />
                 </linearGradient>
               </defs>
-              <polygon points="110,6 205,58 205,162 110,214 15,162 15,58"
-                       stroke="url(#hexBorder)" stroke-width="1.5" fill="none" stroke-dasharray="6 4" opacity="0.7"/>
+              <polygon points="110,6 205,58 205,162 110,214 15,162 15,58" stroke="url(#hexBorder)" stroke-width="1.5"
+                fill="none" stroke-dasharray="6 4" opacity="0.7" />
             </svg>
 
             <!-- Inner hex clip photo -->
-            <div class="w-52 h-52 relative overflow-hidden"
-                 style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            <div class="w-52 h-52 relative overflow-hidden" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
                         background: linear-gradient(135deg, #00d4ff22, #8b5cf622);">
 
               <!-- Photo -->
               <img src="https://res.cloudinary.com/dqkot00lj/image/upload/v1778770833/tu_foto_fjiipt.jpg"
-                   alt="Xiomara Giraldo"
-                   class="w-full h-full object-cover object-top"
-                   style="filter: contrast(1.05) saturate(1.1);">
+                alt="Xiomara Giraldo" class="w-full h-full object-cover"
+                style="object-position: center 15%; filter: contrast(1.05) saturate(1.1);">
 
               <!-- Cyber color overlay -->
-              <div class="absolute inset-0"
-                   style="background: linear-gradient(180deg, transparent 50%, rgba(0,212,255,0.08) 100%),
+              <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 50%, rgba(52, 126, 141, 0.08) 100%),
                                        linear-gradient(135deg, rgba(0,212,255,0.06) 0%, transparent 50%);
                           mix-blend-mode: screen;"></div>
 
               <!-- Scanner line animation -->
-              <div class="absolute inset-x-0 h-0.5 scanner-line"
-                   style="background: linear-gradient(90deg, transparent, rgba(0,212,255,0.8), transparent);
+              <div class="absolute inset-x-0 h-0.5 scanner-line" style="background: linear-gradient(90deg, transparent, rgba(0,212,255,0.8), transparent);
                           box-shadow: 0 0 12px rgba(0,212,255,0.6);"></div>
 
               <!-- Corner circuit marks -->
@@ -226,65 +233,66 @@
 
           </div>
 
-          <!-- Name + role tag under hex -->
-          <div class="text-center flex flex-col gap-1">
+          <!-- Name + role tag under hex (absolute so hex alone is the flex-centered element) -->
+          <div
+            class="absolute top-full mt-4 left-1/2 -translate-x-1/2 text-center whitespace-nowrap flex flex-col gap-1">
             <p class="font-display font-bold text-text-primary tracking-wide">Xiomara Giraldo</p>
             <div class="flex items-center justify-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse"></span>
-              <span class="font-mono text-xs text-cyber-cyan tracking-widest">{{ lang.t('hero.fs_dev') | uppercase }}</span>
+              <span class="font-mono text-xs text-cyber-cyan tracking-widest">{{ lang.t('hero.fs_dev') | uppercase
+                }}</span>
             </div>
           </div>
         </div>
 
         <!-- ── Floating stat cards ── -->
         <div class="absolute top-8 right-4 neuro-card-sm px-3 py-2.5 animate-float flex items-center gap-2.5"
-             style="border: 1px solid rgba(0,212,255,0.12)">
+          style="border: 1px solid rgba(0,212,255,0.12)">
           <div class="w-7 h-7 rounded-lg flex items-center justify-center text-sm"
-               style="background: rgba(0,212,255,0.1)">🚀</div>
+            style="background: rgba(0,212,255,0.1)">🚀</div>
           <div>
-            <p class="font-mono text-cyber-cyan text-xs font-bold leading-none">+50</p>
+            <p class="font-mono text-cyber-cyan text-xs font-bold leading-none">+5</p>
             <p class="text-text-muted text-[10px]">{{ lang.t('hero.stat_projects') }}</p>
           </div>
         </div>
 
         <div class="absolute bottom-16 right-2 neuro-card-sm px-3 py-2.5 animate-float-delay flex items-center gap-2.5"
-             style="border: 1px solid rgba(139,92,246,0.12)">
+          style="border: 1px solid rgba(139,92,246,0.12)">
           <div class="w-7 h-7 rounded-lg flex items-center justify-center text-sm"
-               style="background: rgba(139,92,246,0.1)">⭐</div>
+            style="background: rgba(139,92,246,0.1)">📁</div>
           <div>
-            <p class="font-mono text-cyber-purple text-xs font-bold leading-none">30+</p>
+            <p class="font-mono text-cyber-purple text-xs font-bold leading-none">4+</p>
             <p class="text-text-muted text-[10px]">{{ lang.t('hero.stat_clients') }}</p>
           </div>
         </div>
 
         <div class="absolute top-16 left-2 neuro-card-sm px-3 py-2.5 animate-float-slow flex items-center gap-2.5"
-             style="border: 1px solid rgba(244,114,182,0.12)">
+          style="border: 1px solid rgba(244,114,182,0.12)">
           <div class="w-7 h-7 rounded-lg flex items-center justify-center text-sm"
-               style="background: rgba(244,114,182,0.1)">💡</div>
+            style="background: rgba(244,114,182,0.1)">💡</div>
           <div>
             <p class="font-mono text-cyber-pink text-xs font-bold leading-none">3+yr</p>
             <p class="text-text-muted text-[10px]">{{ lang.t('hero.stat_exp') }}</p>
           </div>
         </div>
 
-        <!-- ── Tech orbit nodes ── -->
+        <!-- ── Orbit stat node ── -->
         <div class="absolute w-[420px] h-[420px] animate-spin-slow" style="animation-duration: 18s">
+          <!-- 10+ Tecnologías badge -->
           <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold neuro-card-sm"
-                 style="border: 1px solid rgba(0,212,255,0.15); color:#00d4ff">Ng</div>
+            <div class="neuro-card-sm px-2.5 py-1.5 flex flex-col items-center"
+              style="border: 1px solid rgba(0,212,255,0.2)">
+              <p class="font-mono text-cyber-cyan text-xs font-bold leading-none">10+</p>
+              <p class="text-text-muted text-[9px] mt-0.5 font-mono">Tech</p>
+            </div>
           </div>
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold neuro-card-sm"
-                 style="border: 1px solid rgba(139,92,246,0.15); color:#8b5cf6">TS</div>
-          </div>
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold neuro-card-sm"
-                 style="border: 1px solid rgba(16,255,160,0.15); color:#10ffa0">Nd</div>
-          </div>
-          <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold neuro-card-sm"
-                 style="border: 1px solid rgba(244,114,182,0.15); color:#f472b6">PG</div>
-          </div>
+          <!-- Decorative dots -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2
+                      w-2 h-2 rounded-full bg-cyber-purple" style="box-shadow: 0 0 6px #8b5cf6; opacity: 0.6"></div>
+          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2
+                      w-2 h-2 rounded-full bg-cyber-green" style="box-shadow: 0 0 6px #10ffa0; opacity: 0.6"></div>
+          <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2
+                      w-2 h-2 rounded-full bg-cyber-pink" style="box-shadow: 0 0 6px #f472b6; opacity: 0.6"></div>
         </div>
 
       </div>

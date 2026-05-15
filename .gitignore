@@ -48,6 +48,7 @@ desktop.ini
 .env
 .env.*
 !.env.example
+src/environments/environment.ts
 
 # Logs
 logs/
