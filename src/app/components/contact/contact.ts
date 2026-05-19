@@ -79,12 +79,14 @@ export class Contact {
   private async sendEmail(templateId: string, params: Record<string, string>) {
     const res = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': accessToken,
+      },
       body: JSON.stringify({
         service_id: serviceId,
         template_id: templateId,
         user_id: publicKey,
-        accessToken,
         template_params: params,
       }),
     });
