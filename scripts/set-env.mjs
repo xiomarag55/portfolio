@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync } from 'fs';
 
 const isDev = process.argv.includes('--dev');
 
@@ -30,5 +30,6 @@ const content = `export const environment = {
 };
 `;
 
+mkdirSync('./src/environments', { recursive: true });
 writeFileSync(targetPath, content);
 console.log(`✓ ${targetPath} generado desde variables de entorno`);
