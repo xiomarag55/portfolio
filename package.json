@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
     "set-env": "node scripts/set-env.mjs",
     "set-env:dev": "node --env-file=.env scripts/set-env.mjs --dev",
     "start": "npm run set-env:dev && ng serve",
