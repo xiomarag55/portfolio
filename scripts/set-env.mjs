@@ -16,10 +16,6 @@ if (missing.length) {
   process.exit(1);
 }
 
-const targetPath = isDev
-  ? './src/environments/environment.ts'
-  : './src/environments/environment.prod.ts';
-
 const content = `export const environment = {
   production: ${!isDev},
   emailJsServiceId: '${process.env.NG_APP_EMAILJS_SERVICE_ID}',
@@ -31,5 +27,5 @@ const content = `export const environment = {
 `;
 
 mkdirSync('./src/environments', { recursive: true });
-writeFileSync(targetPath, content);
-console.log(`✓ ${targetPath} generado desde variables de entorno`);
+writeFileSync('./src/environments/environment.ts', content);
+console.log('✓ environment.ts generado');
